@@ -26,6 +26,31 @@ Examples and Screenshots can be found in [the Wiki](https://github.com/csandker/
 
 Please see [the Wiki](https://github.com/csandker/Playbooks/wiki/1.-Installation-&-Setup) for instruction how to setup Playbooks and get started.
 
+### Docker
+
+Run the following commands from the cloned repository folder to create a new container and start the application:
+
+```
+docker build -t playbook .
+```
+```
+docker run -it -p 8000:8000/tcp --name app-playbook playbook
+```
+Create admin user in the container:
+```
+docker exec -it app-playbook bash
+```
+Within the new shell run:
+```bash
+python3 manage.py createsuperuser
+```
+
+From now on all changes are persitent and you can start and stop the container with:
+```
+docker stop app-playbook
+docker start app-playbook
+```
+
 ## Preview
 
 **Overview of the dashboard:**<br>
